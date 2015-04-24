@@ -1,0 +1,36 @@
+<!--
+	Goals:
+	- make into a require-able node component
+	- move the js in this file to an app.js file
+	- use browserify to build the js
+-->
+
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+</head>
+<body>
+	<div id="container">
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="js/input_dropdown.js"></script>
+
+	<script>
+		(function() {
+			var inputDropdown = new input_dropdown();
+			var items = [];
+
+			for (var i = 0; i < 10; i++) {
+				items.push({ text: "text" + i, val: i });
+			}
+
+			var template = inputDropdown.template('Click me', items);
+			$('#container').html(template);
+			inputDropdown.init($('#container > .dropdown'));
+		})();
+	</script>
+</body>
+</html>
