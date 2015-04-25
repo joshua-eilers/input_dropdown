@@ -65,39 +65,13 @@ input_dropdown = function() {
 
 	// constructs the markup for a dropdown
 	var template = function(defaultButtonName, items) {
-		var html = '' +
-			'<div class="dropdown">' +
-				'<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">' +
-					'<span class="dropdown-btn-text">' + defaultButtonName + '</span>' +
-					'&nbsp<span class="caret"></span>' +
-				'</button>' +
-				'<ul class="dropdown-menu" role="menu">' +
-					'<li>' +
-						'<input type="text" class="form-control" placeholder="Search...">' +
-					'</li>' +
-					'<li class="dropdown-content">' +
-						'<div class="list-group" style="margin-bottom: 0px;">' +
-							constructListItems(items) +
-						'</div>' +
-					'</li>' +
-				'</ul>' +
-			'</div>';
+		var template = _.template($('#template').html());
+		var data = {
+			defaultButtonName: defaultButtonName,
+			items: items
+		};
 
-		return html;
-	};
-
-	// constructs all the markup for the elements in the dropdown
-	var constructListItems = function(items) {
-		var html = '';
-		for (var i = 0, l = items.length; i < l; i++) {
-			html += '' +
-				'<a href="javascript: void(0);" class="list-group-item">' +
-					'<span>' + items[i].text + '</span>' +
-					'<input type="hidden" value="' + items[i].val + '">';
-				'</a>';
-		}
-
-		return html;
+		return template(data);
 	};
 
 	return {
