@@ -1,3 +1,4 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = function() {
 	// cache references to primary ui components
 	var ui = {
@@ -78,3 +79,20 @@ module.exports = function() {
 
 	return api;
 };
+},{}],2:[function(require,module,exports){
+var InputDropdown = require('./input_dropdown.js');
+
+$(document).ready(function() {
+	var inputDropdown = new InputDropdown();
+	var items = [];
+
+	for (var i = 0; i < 10; i++) {
+		items.push({ text: "text" + i, val: i });
+	}
+
+	var template = inputDropdown.template('Click me', items);
+	$('#container').html(template);
+	inputDropdown.init($('#container > .dropdown'));
+});
+
+},{"./input_dropdown.js":1}]},{},[2]);

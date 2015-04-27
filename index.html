@@ -1,9 +1,8 @@
 <!--
 	Goals:
 	- make into a require-able node component
-	- move the js in this file to an app.js file
 	- use browserify to build the js
-	- use an underscore template
+	- move underscore template into app.templates object
 -->
 
 <html>
@@ -42,21 +41,7 @@
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="node_modules/underscore/underscore-min.js"></script>
-	<script src="js/input_dropdown.js"></script>
+	<script src="js/app.js"></script>
 
-	<script>
-		(function() {
-			var inputDropdown = new input_dropdown();
-			var items = [];
-
-			for (var i = 0; i < 10; i++) {
-				items.push({ text: "text" + i, val: i });
-			}
-
-			var template = inputDropdown.template('Click me', items);
-			$('#container').html(template);
-			inputDropdown.init($('#container > .dropdown'));
-		})();
-	</script>
 </body>
 </html>
