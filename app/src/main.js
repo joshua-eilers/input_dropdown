@@ -9,6 +9,6 @@ $(document).ready(function() {
 	}
 
 	var template = inputDropdown.template('Click me', items);
-	$('#container').html(template);
-	inputDropdown.init($('#container > .dropdown'));
+	$('#main-content-area').html(template);
+	inputDropdown.init($('#main-content-area > .dropdown'));
 });

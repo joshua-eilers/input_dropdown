@@ -1,47 +1,14 @@
-<!--
-	Goals:
-	- make into a require-able node component
-	- use browserify to build the js
-	- move underscore template into app.templates object
--->
-
 <html>
 <head>
 	<title></title>
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
-	<div id="container">
-	</div>
-
-	<script type="text/template" id="template">
-		<div class="dropdown">
-			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-				<span class="dropdown-btn-text"><%= defaultButtonName %></span>
-				&nbsp<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu" role="menu">
-				<li>
-					<input type="text" class="form-control" placeholder="Search...">
-				</li>
-				<li class="dropdown-content">
-					<div class="list-group" style="margin-bottom: 0px;">
-						<% _.each(items, function(item) { %>
-							<a href="javascript: void(0);" class="list-group-item">
-								<span><%= item.text %></span>
-								<input type="hidden" value="<%= item.val %>">
-							</a>
-						<% }); %>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</script>
+	<div id="main-content-area"></div>
 
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="node_modules/underscore/underscore-min.js"></script>
-	<script src="js/app.js"></script>
-
+	<script src="js/dist/app.js"></script>
 </body>
 </html>
