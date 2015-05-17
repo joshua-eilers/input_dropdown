@@ -1,0 +1,6 @@
+<% _.each(items, function(item) { %>
+	<a href="javascript: void(0);" class="list-group-item">
+		<span><%= item.text %></span>
+		<input type="hidden" value="<%= item.val %>">
+	</a>
+<% }); %>
