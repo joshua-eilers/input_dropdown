@@ -13,10 +13,9 @@ function InputDropdown(opts) {
 }
 
 InputDropdown.prototype.setItems = function(items) {
-  var html = '';
-  for (var i = 0, l = items.length; i < l; i++) {
-    html += '<a href="javascript: void(0);" class="list-group-item">' + items[i] + '</a>';
-  }
+  $.each(items, function(index, value) {
+    html += '<a href="javascript: void(0);" class="list-group-item">' + value + '</a>';
+  });
   this.$itemsContainer.html(html);
   this.$items = this.$itemsContainer.find('.list-group-item');
 };
@@ -68,19 +67,11 @@ InputDropdown.prototype.show = function() {
 
 InputDropdown.prototype.filterList = function(str) {
   str = str.toLowerCase();
-  this.$items.filter('.match').removeClass('match');
-  var itemsLength = this.$items.length;
-  var name = '';
-  var i = 0;
+  this.$items.removeClass('match');
 
-  for (i = 0; i < itemsLength; i++) {
-    name = $(this.$items[i]).text().toLowerCase();
-
-    if (name.indexOf(str) > -1 ) {
-      $(this.$items[i]).addClass('match');
-    }
-  }
+  this.$items.filter(function() {
+    return $(this).text().toLowerCase().indexOf(str) >= 0;
+  }).addClass('match').show();
 
   this.$items.not('.match').hide();
-  this.$items.filter('.match').show();
 };
