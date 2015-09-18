@@ -13,6 +13,7 @@ function InputDropdown(opts) {
 }
 
 InputDropdown.prototype.setItems = function(items) {
+  var html = '';
   $.each(items, function(index, value) {
     html += '<a href="javascript: void(0);" class="list-group-item">' + value + '</a>';
   });
