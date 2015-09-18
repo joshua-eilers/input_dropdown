@@ -59,13 +59,6 @@ InputDropdown.prototype.bindEvents = function() {
   });
 };
 
-InputDropdown.prototype.show = function() {
-  var self = this;
-  setTimeout(function() {
-    self.$btn.dropdown('toggle');
-  }, 10);
-};
-
 InputDropdown.prototype.filterList = function(str) {
   str = str.toLowerCase();
   this.$items.removeClass('match');
